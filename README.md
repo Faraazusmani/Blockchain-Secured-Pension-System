@@ -1,7 +1,5 @@
 # Blockchain-Secured-Pension-System
-<<<<<<< HEAD
-The traditional pension system that we use currently is centralised. This means that the data is stored and controlled by a central server. The users whose data is stored in the server has no control over it once it has been stored in the database. This is not the most secure way to keep data under the control of single authority because nobody but a single authority is responsible for every change in data be it major or minute. 
-=======
+
 The traditional pension system that we use currently is centralised. This means that the data is stored and controlled by a central server. The users whose data is stored in the server has no control over it once it has been stored in the database. This is not the most secure way to keep data under the control of single authority because nobody but a single authority is responsible for every change in data be it major or minute.
 >>>>>>> d61b705... Inital commit
 
