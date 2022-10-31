@@ -1,12 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pension_blockchain/constants.dart';
 import 'package:pension_blockchain/screens/home_screen.dart';
+import 'package:pension_blockchain/utilities.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  TextEditingController _contractAddress = TextEditingController();
-  TextEditingController _privateKey = TextEditingController();
+  final TextEditingController _contractAddress = TextEditingController();
+  final TextEditingController _privateKey = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +45,9 @@ class LoginScreen extends StatelessWidget {
                 child: createButton(
                   text: "Authenticate",
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
-                      ),
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
                     );
                   },
                 ),
