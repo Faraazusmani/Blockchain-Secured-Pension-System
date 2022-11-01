@@ -40,6 +40,7 @@ Widget textInput(
 Widget createButton(
     {String? text,
     required Function() onPressed,
+    Color color = kPrimaryColor,
     double height = 40,
     double width = 150}) {
   return SizedBox(
@@ -47,15 +48,15 @@ Widget createButton(
     child: ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: kPrimaryColor,
+        backgroundColor: color,
         foregroundColor: Colors.black,
         elevation: 20.0,
         shadowColor: Colors.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        side: const BorderSide(
-          color: Colors.black,
+        side: BorderSide(
+          color: color == kPrimaryColor ? Colors.black : kPrimaryColor,
           width: 0.6,
         ),
       ),
@@ -64,7 +65,9 @@ Widget createButton(
         child: Center(
           child: Text(
             text!,
-            style: const TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(
+                color: color == kPrimaryColor ? Colors.white : kPrimaryColor,
+                fontSize: 20),
           ),
         ),
       ),

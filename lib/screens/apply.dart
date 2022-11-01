@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pension_blockchain/screens/register.dart';
 import 'package:pension_blockchain/utilities.dart';
 
 class Apply extends StatelessWidget {
@@ -10,7 +11,7 @@ class Apply extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: myAppBar(title: "Secure Pension", backButton: true),
+      appBar: myAppBar(title: "Fresh", backButton: true),
       body: SizedBox(
         height: size.height - 20,
         child: ListView(
@@ -24,7 +25,7 @@ class Apply extends StatelessWidget {
                   children: [
                     const SizedBox(height: 50),
                     const Text(
-                      "Select region",
+                      "Select option",
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -33,7 +34,13 @@ class Apply extends StatelessWidget {
                     const SizedBox(height: 30),
                     createButton(
                       text: "District",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Register(classification: "District")));
+                      },
                     ),
                     createButton(
                       text: "State",

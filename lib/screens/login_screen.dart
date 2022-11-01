@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pension_blockchain/constants.dart';
 import 'package:pension_blockchain/screens/home_screen.dart';
 import 'package:pension_blockchain/utilities.dart';
 
@@ -28,7 +27,9 @@ class LoginScreen extends StatelessWidget {
                   width: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: kPrimaryColor,
+                    image: const DecorationImage(
+                        image: AssetImage("images/blockchain_pension.jpg"),
+                        fit: BoxFit.cover),
                   ),
                 ),
               ),
