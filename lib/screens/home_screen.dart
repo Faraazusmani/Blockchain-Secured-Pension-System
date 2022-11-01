@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:pension_blockchain/constants.dart';
 import 'package:pension_blockchain/controller/home_screen_controller.dart';
 import 'package:pension_blockchain/screens/apply.dart';
+import 'package:pension_blockchain/screens/renewal.dart';
 import 'package:pension_blockchain/utilities.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -93,6 +94,10 @@ class HomeScreen extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const Apply()));
+                      } else if (selectedValue == dropDownValues[2]) {
+                        _controller.dropDownValue.value = dropDownValues[0];
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Renewal()));
                       }
                     },
                   ),
