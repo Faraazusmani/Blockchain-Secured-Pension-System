@@ -92,3 +92,43 @@ Future myAlertBox(
     ),
   );
 }
+
+class BoxInBox extends StatelessWidget {
+  const BoxInBox(
+      {Key? key,
+      required this.height,
+      required this.width,
+      required this.child})
+      : super(key: key);
+  final double height;
+  final double width;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Center(
+        child: Container(
+          height: height,
+          width: width,
+          decoration: BoxDecoration(
+            color: kPrimaryColor,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: Center(
+            child: Container(
+              height: (6 / 7) * height,
+              width: width - 30,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: child,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
