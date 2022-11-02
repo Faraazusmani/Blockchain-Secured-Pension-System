@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pension_blockchain/controller/register_controller.dart';
+import 'package:pension_blockchain/screens/success.dart';
 import 'package:pension_blockchain/utilities.dart';
 
 class Register extends StatelessWidget {
@@ -63,7 +64,14 @@ class Register extends StatelessWidget {
                         width: 200,
                         color: Colors.white),
                   ),
-                  createButton(onPressed: () {}, text: "Register")
+                  createButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Success()));
+                      },
+                      text: "Register")
                 ],
               ),
             ),

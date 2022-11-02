@@ -44,11 +44,23 @@ class Apply extends StatelessWidget {
                     ),
                     createButton(
                       text: "State",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Register(classification: "State")));
+                      },
                     ),
                     createButton(
                       text: "National",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Register(classification: "National")));
+                      },
                     ),
                     const SizedBox(height: 50),
                   ],

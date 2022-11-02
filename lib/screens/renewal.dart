@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pension_blockchain/screens/failure.dart';
 import 'package:pension_blockchain/utilities.dart';
 
 class Renewal extends StatelessWidget {
@@ -32,7 +33,14 @@ class Renewal extends StatelessWidget {
                   ),
                   textInput(
                       text: "Salary Id", width: 500, controller: _salaryId),
-                  createButton(onPressed: () {}, text: "Confirm"),
+                  createButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Failure()));
+                      },
+                      text: "Confirm"),
                 ],
               ),
             ),
