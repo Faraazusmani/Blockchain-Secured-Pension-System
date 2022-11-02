@@ -1,7 +1,17 @@
-// SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.9.0;
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.9.0;
 
 contract PensionSystem{
+    Schemess[] national;
+    Schemess[] state;
+    Schemess[] district;
+
+    constructor() {
+        national.push(Schemess("N001", "National Level Pension Scheme", 50000, 60));
+        state.push(Schemess("S001", "State Level Pension Scheme", 49999, 60));
+        district.push(Schemess("D001", "District Level Pension Scheme", 49888, 60));
+    }
     
     struct Date{
         uint day;
@@ -9,18 +19,24 @@ contract PensionSystem{
         uint year;
     }
 
-    struct Scheme{
+    // struct Scheme{
+    //     string scheme_id;
+    //     string scheme_name;
+    //     uint256 amount;
+    //     uint256 eligibleAge;
+    // }
+    struct Schemess{
         string scheme_id;
         string scheme_name;
-        uint amount;
-        uint eligibleAge;
+        uint256 amount;
+        uint256 eligibleAge;
     }
 
     // mapping(uint => SchemeDetails) scheme;
 
     struct SchemeDetails{
         string classification;
-        Scheme scheme;
+        Schemess scheme;
         Date lastRenewed;
         Date applied;
         Date firstReceived;
@@ -40,16 +56,16 @@ contract PensionSystem{
 
     mapping(address => User) users;
     mapping(address => uint) userPresent;
-    mapping(string => Scheme) schemeIdSchemes;
+    mapping(string => Schemess) schemeIdSchemes;
     mapping(address => SchemeDetails[]) userSchemeDetails;
 
 
     address[] userIds;
     // mapping(string => SchemeDetails[]) scheme;
 
-    Scheme[] national = [Scheme("N001", "National Level Pension Scheme", 50000, 60)];
-    Scheme[] state = [Scheme("S001", "State Level Pension Scheme", 49999, 60)];
-    Scheme[] district = [Scheme("D001", "District Level Pension Scheme", 49888, 60)];
+    // Schemess[] national = [Schemess("N001", "National Level Pension Scheme", 50000, 60)];
+    // Schemess[] state = [Schemess("S001", "State Level Pension Scheme", 49999, 60)];
+    // Schemess[] district = [Schemess("D001", "District Level Pension Scheme", 49888, 60)];
 
 
     event userAdded(address[] userIds);
@@ -60,9 +76,9 @@ contract PensionSystem{
         return transactionStatus;
     }
 
-    function getSchemes(string memory classification) public view returns(Scheme[] memory ){
-        if(keccak256(abi.encodePacked(classification)) == keccak256(abi.encodePacked('National'))) return national;
-        else if(keccak256(abi.encodePacked(classification)) == keccak256(abi.encodePacked('State'))) return state;
+    function getSchemes(string memory classification) public view returns(Schemess[] memory ){
+        if(keccak256(abi.encodePacked(classification)) == keccak256(abi.encodePacked("National"))) return national;
+        else if(keccak256(abi.encodePacked(classification)) == keccak256(abi.encodePacked("State"))) return state;
         else return district;
     }
     // Getters end...........................................
@@ -109,7 +125,7 @@ contract PensionSystem{
         return true;
     }
 
-    // Function to register Pension for the user.
+    //Function to register Pension for the user.
     function applyPension(string memory classification, string memory scheme_id, uint day, uint month, uint year) public{
 
         transactionStatus = false;
@@ -124,7 +140,7 @@ contract PensionSystem{
             }
         }
         
-        Scheme memory scheme = schemeIdSchemes[scheme_id];
+        Schemess memory scheme = schemeIdSchemes[scheme_id];
 
         SchemeDetails memory schemeDetails = SchemeDetails(
             classification,
