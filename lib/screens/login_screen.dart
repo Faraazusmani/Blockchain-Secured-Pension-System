@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pension_blockchain/screens/home_screen.dart';
 import 'package:pension_blockchain/utilities.dart';
@@ -6,7 +5,6 @@ import 'package:pension_blockchain/utilities.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  final TextEditingController _contractAddress = TextEditingController();
   final TextEditingController _privateKey = TextEditingController();
 
   @override
