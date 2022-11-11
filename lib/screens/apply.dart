@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:pension_blockchain/screens/register.dart';
+import 'package:pension_blockchain/screens/available_schemes.dart';
 import 'package:pension_blockchain/utilities.dart';
 
 class Apply extends StatelessWidget {
@@ -38,8 +38,9 @@ class Apply extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    Register(classification: "District")));
+                                builder: (context) => AvailableSchemes(
+                                      classification: "District",
+                                    )));
                       },
                     ),
                     createButton(
@@ -48,8 +49,9 @@ class Apply extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    Register(classification: "State")));
+                                builder: (context) => AvailableSchemes(
+                                      classification: "State",
+                                    )));
                       },
                     ),
                     createButton(
@@ -58,8 +60,9 @@ class Apply extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    Register(classification: "National")));
+                                builder: (context) => AvailableSchemes(
+                                      classification: "National",
+                                    )));
                       },
                     ),
                     const SizedBox(height: 50),

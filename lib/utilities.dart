@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:pension_blockchain/constants.dart';
 
@@ -134,4 +136,19 @@ class BoxInBox extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget loadingOverlay({required bool loading}) {
+  return loading
+      ? BackdropFilter(
+          filter: ImageFilter.blur(sigmaY: 3, sigmaX: 3),
+          child: const Center(
+              child: SizedBox(
+            height: 150,
+            width: 150,
+            child: CircularProgressIndicator(
+                backgroundColor: Colors.grey, color: kPrimaryColor),
+          )),
+        )
+      : const SizedBox(height: 0, width: 0);
 }
